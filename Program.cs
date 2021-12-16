@@ -7,6 +7,17 @@ namespace DelegatesDemo
 {
     class Program
     {
+        static void Main(string[] args)
+    
+         Predicate<string> isUpper = delegate(string s) { return s.Equals(s.ToUpper());};
+         bool result = isUpper("hello world!!");
+        
+        //what is the difference between above and following method ???!!!!
+          static bool IsUpperMethod(string s)
+        {
+            return s.Equals(s.ToUpper());
+        }
+    
         public delegate bool FilterDelegate(Person p);
         //generic one
         public static Func<Person, Person> upperBoy = str => new Person {Name = str.Name.ToUpper(), Age = str.Age };
@@ -101,5 +112,6 @@ namespace DelegatesDemo
         {
             return p.Age >= 65;
         }
+        
     }
 }
